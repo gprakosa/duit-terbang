@@ -270,6 +270,48 @@ RULES:
 ```
 </details>
 
+<br>
+
+**3. Parsing Response**
+```mermaid
+%%{init: {'flowchart': {'curve': 'basis'}}}%%
+flowchart TD
+
+subgraph AIModel["Gemini AI Model"]
+    GetContents[/"Get Contents of URL 
+        (POST)"/]
+end
+subgraph Parsing[" "]
+    GetDictionaryValue1[/"Get Dictionary Value 
+            (key: candidates)"/]
+    GetItem[/"Get Item from List 
+            (First Item)"/]
+    GetDictionaryValue2[/"Get Dictionary Value 
+            (key: content.parts.1.text)"/]
+    GetDictionaryInput[/"Get Dictionary from Input"/]
+    GetDictionaryValueAI[/"Get Dictionary Value 
+            (key: ai_description"/]
+    GetDictionaryValueAI2[/"Get Dictionary Value 
+            (key: ai_amount"/]
+    GetDictionaryValueAI3[/"Get Dictionary Value 
+            (key: ai_suggestedCategory"/]
+end
+SetVariable["Set Variable
+        (description)"]
+SetVariable2["Set Variable
+        (amount)"]
+SetVariable3["Set Variable
+        (category)"]
+
+GetContents --> GetDictionaryValue1 --> GetItem --> GetDictionaryValue2 --> GetDictionaryInput
+GetDictionaryInput --> GetDictionaryValueAI
+GetDictionaryInput --> GetDictionaryValueAI2
+GetDictionaryInput --> GetDictionaryValueAI3
+GetDictionaryValueAI --> SetVariable
+GetDictionaryValueAI2 --> SetVariable2
+GetDictionaryValueAI3 --> SetVariable3
+```
+
 ## Level 5 - PRO!
 This stage unlocks direct camera scanning and resilient error handling. Congratulations, King 👑.
 
