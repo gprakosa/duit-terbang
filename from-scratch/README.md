@@ -1,5 +1,5 @@
 ## Level 1 - Basic
-This stage covers initial setup and foundational knowledge you need to get started 🚀.
+This stage covers initial setup and foundational knowledge you need to get started 🚀. 
 
 ### Create a Google Form
 1. Go to https://docs.google.com/forms/u/0/.
@@ -41,7 +41,7 @@ also jotted down the entries reflected to our questions (Your _`Entry ID`_ maybe
 
 For the first time, pop-up will be shown to ask permission for accessing the _`form URL`_. Simply choose _Always Allow_.
 
-## Level 2 - Aware
+## Level 2 - Enrich
 This stage adds context to your data. Now we don't just track what you spent, but also where you spent it 👁️.
 
 ### Update the Google Form
@@ -69,7 +69,7 @@ Take a look only for the new _`Entry ID`_:
 6. Tap _Text_ on each field and choose _Select Variable_. Swipe up and choose `Longitude` and `Latitude` respectively.
 7. Tap and hold _Hamburger_ icon on `submit` field then drag it to the very bottom.
 
-## Level 3 - Organized
+## Level 3 - Organize
 This stage makes your data cleaner and your shortcut smarter. No more random in `Kategori` and let's start make things tidy and programmatic 🎯.
 
 ### Update the iOS Shortcut
@@ -88,7 +88,7 @@ This stage makes your data cleaner and your shortcut smarter. No more random in 
 
 For the first time, pop-up will be shown to ask permission for accessing our current loction. Simply choose _Always Allow_.
 
-### Full Category List
+#### Full Category List
 |No.|Category|Examples|
 |:--|:-------|:-------|
 |1.|🍱🍜 Makan/Minum|warung, resto, food delivery, nasi padang|
@@ -116,10 +116,7 @@ This stage is where AI takes over! Just upload a receipt and let the magic happe
 
 The `API Key` will be used later on for the headers value of _x-goog-api-key_ key.
 
-### Highlight
- 
-**1. Action Flow**
-
+### Update the iOS Shortcut 
 ```mermaid
 %%{init: {'flowchart': {'curve': 'basis'}}}%%
 flowchart TD
@@ -182,8 +179,29 @@ flowchart TD
     Variables --> | Request Body | FinalPost
     FinalPost --> End([End])
 ```
+#### 1. URL
 
-**2. Headers & Request Body Structure**
+
+Gemini Flash Latest:
+
+```text
+https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent
+```
+
+Gemini Flash 2.5:
+
+```text
+https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent
+```
+
+Gemini Flash 3.5:
+
+```text
+https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent
+```
+
+
+#### 2. Headers & Request Body Structure
 ```text
 Headers
 ├── x-goog-api-key: "AIzaSy...your_api_key"
@@ -272,7 +290,7 @@ RULES:
 
 <br>
 
-**3. Parsing Response**
+#### 3. Parsing Response
 ```mermaid
 %%{init: {'flowchart': {'curve': 'basis'}}}%%
 flowchart TD
@@ -290,11 +308,11 @@ subgraph Parsing[" "]
             (key: content.parts.1.text)"/]
     GetDictionaryInput[/"Get Dictionary from Input"/]
     GetDictionaryValueAI[/"Get Dictionary Value 
-            (key: ai_description"/]
+            (key: ai_description)"/]
     GetDictionaryValueAI2[/"Get Dictionary Value 
-            (key: ai_amount"/]
+            (key: ai_amount)"/]
     GetDictionaryValueAI3[/"Get Dictionary Value 
-            (key: ai_suggestedCategory"/]
+            (key: ai_suggestedCategory)"/]
 end
 SetVariable["Set Variable
         (description)"]
@@ -315,9 +333,7 @@ GetDictionaryValueAI3 --> SetVariable3
 ## Level 5 - PRO!
 This stage unlocks direct camera scanning and resilient error handling. Congratulations, King 👑.
 
-### Highlight 
-
-**1. Action Flow**
+### Update the iOS Shortcut 
 ```mermaid
 %%{init: {'flowchart': {'curve': 'basis'}}}%%
 flowchart TD

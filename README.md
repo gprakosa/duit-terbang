@@ -9,7 +9,7 @@
 
 Ever felt like your money just... flies away?
 
-**Duit Terbang** is a free tool to catch your flying money directly from your iPhone. From Indonesia, for anyone who needs it. 🇮🇩 
+**Duit Terbang** is a free tool to catch your flying money directly from your iPhone. From Indonesia, for anyone who needs it 🇮🇩. 
 
 ## Overview
 
